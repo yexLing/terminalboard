@@ -53,7 +53,7 @@ pip install --index-url https://test.pypi.org/simple/ terminalboard
 ## 2b. Publish automatically (GitHub Actions, no token)
 
 The repo ships `.github/workflows/publish.yml`, which builds and publishes via
-PyPI **Trusted Publishing** (OIDC) whenever you publish a GitHub Release.
+PyPI **Trusted Publishing** (OIDC) whenever a `v*` tag is pushed.
 
 One-time PyPI setup — **Your account → Publishing → Add a publisher**:
 
@@ -72,8 +72,9 @@ git tag v0.1.1
 git push --tags
 ```
 
-On GitHub: **Releases → Draft a new release → choose the tag → Publish**. The
-workflow builds and uploads automatically — no secrets stored.
+The tag push triggers the workflow, which builds and uploads automatically — no
+secrets stored. Optionally create a GitHub Release from the tag afterwards for
+release notes.
 
 ## 3. Verify
 

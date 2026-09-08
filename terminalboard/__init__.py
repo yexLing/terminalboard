@@ -6,4 +6,4 @@ heatmaps or distribution bands, precision-recall curves, and an HParams table.
 No browser, no X11, no port forwarding.
 """
 
-__version__ = "0.5.2"
+__version__ = "0.5.3"

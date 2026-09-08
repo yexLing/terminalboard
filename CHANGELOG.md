@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.5.3 — 2026-09-08
+
+### Changed
+- Project moved to [github.com/yexLing/terminalboard](https://github.com/yexLing/terminalboard).
+  README badges, links, and package metadata now point at the new home. No
+  functional changes.
+
 ## 0.5.2 — 2026-06-13
 
 ### Changed

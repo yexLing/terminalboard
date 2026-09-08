@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Claude Code session data
+.claude/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local test logs / scratch data live OUTSIDE this repo (in the parent
+# working folder), but ignore them too in case any get dropped in here.
+tb_logs/
+*.tfevents.*
+
+# Generated demo artifacts
+demo_logs/
+*.cast

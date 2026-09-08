@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "terminalboard"
+dynamic = ["version"]   # single-sourced from terminalboard/__init__.py
+description = "A pure-terminal TensorBoard viewer — live scalar curves, text summaries, histogram heatmaps/distributions, PR curves, and an HParams table in your terminal (local or SSH), no browser, no X11, no port forwarding."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Yex Ling", email = "xuluthebest@gmail.com" }]
+keywords = ["tensorboard", "terminal", "iterm2", "plotext", "ssh", "ml"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Utilities",
+]
+
+# Base install is intentionally light: the text renderer (plotext) and the
+# pure-Python --light parser work with just this.
+dependencies = [
+    "plotext>=5.2",
+]
+
+[project.optional-dependencies]
+# Alternate parser backend (--tb, tensorboard's EventAccumulator).
+tb = ["tensorboard>=2.9"]
+# LLM assistant (the `a` key): natural-language navigation + analysis via LiteLLM.
+# Pinned to the version we audited for privacy (api_key goes only to the chosen
+# provider; no telemetry; no phone-home). Re-audit before bumping.
+llm = ["litellm==1.88.1"]
+# Development / testing.
+dev = ["pytest>=7", "build", "twine"]
+
+[project.scripts]
+terminalboard = "terminalboard.cli:main"
+
+[project.urls]
+Repository = "https://github.com/yexLing/terminalboard"
+
+[tool.setuptools.dynamic]
+version = { attr = "terminalboard.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["terminalboard*"]
